@@ -39,14 +39,14 @@ private static final boolean AUTOMATIC_LOGGING = true;
 private static final boolean WANT_TO_TRAIN = true;  //If set to true, remember to set TRAIN to true too!
 private static boolean TRAIN = true;
 private static final boolean PREVENT_OVERFITTING_A = false;
-private static final boolean PREVENT_OVERFITTING_B = true;
+private static final boolean PREVENT_OVERFITTING_B = false;
 private static boolean justTested = false;
 private static final int[][] trainSet = {{7, 7, 8, 6, 5, 20}, {8, 5, 8, 7, 4, 21}, {5, 9, 10, 7, 4, 20}, {9, 5, 10, 8, 5, 21}};
 private static int trainSetCount = 0;
 private static final int[] generationsToRecord = {1,3,5,7,9};  //TEST environment records the performnace of the geneartion exact same population of the designated generation
 private static int recordCount = 0;
 private static int[] records = new int[generationsToRecord.length];
-private static final int neuralNetCount = 1000;
+private static final int neuralNetCount = 500;
 
 //private NeuralNet[] neuralNets = new NeuralNet[neuralNetCount];
 private static NeuralNetSimple[] neuralNets = new NeuralNetSimple[neuralNetCount];
@@ -185,9 +185,12 @@ void setup()  //Executed at the start of each game...initializes all the necessa
   if (!justTested&&WANT_TO_TRAIN&&!TRAIN)  //Set up the array of neural nets //<>//
   {
     //When we want to test THIS turn...going into the Testing, we should...
-    for (int i=(neuralNetCount/2)+1; i<neuralNetCount; i++)  //Ignore random variants
+    for (int i=5; i<neuralNetCount; i++)
+    //for (int i=(neuralNetCount/2)+1; i<neuralNetCount; i++)  //Ignore random variants
     {
       neuralNets[i] = new NeuralNetSimple();
+      neuralNetX[i] = 0;
+      neuralNetY[i] = 0;
       //netGameOver[i] = true;
     }
   } else
@@ -278,7 +281,7 @@ void draw()  //Iterated repeatedly (apparently at 60 times per second)
         if (count>=gracePeriodCount)
         {
           checkForCollision(neuralNetX[i], neuralNetY[i], x, y, w, i);
-          checkForDeadEdges(neuralNetX[i], neuralNetY[i], i);
+          //checkForDeadEdges(neuralNetX[i], neuralNetY[i], i);
           //if (count>=5*gracePeriodCount)
           //checkForDeadCorners(neuralNetX[i], neuralNetY[i], i);
         }
