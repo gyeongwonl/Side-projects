@@ -1,0 +1,34 @@
+w = 140;
+x = 0-w/2;
+y = 0-w/2;
+xRate = 7;
+yRate = 7;
+
+increaseW = true;
+red = 255;
+green = 0;
+blue = 0;
+count = 0;
+gameOver = false;
+gameOverLoopCount = 0;
+userX = 400;
+userY = 300;
+
+xExtra = 0-wExtra/2;
+yExtra = 0-wExtra/2;
+xRateExtra = 8;
+yRateExtra = 6;
+extraStartLocCount = 0;
+extraIncrement = true;
+
+xSwerve = 0-wSwerve/2;
+ySwerve = 300;
+xRateSwerve = 5;
+yRateSwerve = 20;
+
+Arrays.fill(neuralNetX, 400);
+Arrays.fill(neuralNetY, 300);
+Arrays.fill(netGameOver, false);
+Arrays.fill(top5NetIndex, -1);
+allGameOver = false;
+anotherGeneration = true;
