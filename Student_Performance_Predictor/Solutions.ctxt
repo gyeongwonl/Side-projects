@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Solutions
+comment1.params=test_text_File
+comment1.target=Solutions(java.io.File)
+comment2.params=index
+comment2.target=int\ getSolution(int)
+numComments=3

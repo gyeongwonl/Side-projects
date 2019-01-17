@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Tools
+comment1.params=ans_raw
+comment1.target=int[]\ rawToPlots(java.lang.String[])
+comment2.params=plot
+comment2.target=char\ plotToRaw(int)
+comment3.params=std\ nearest_so_far
+comment3.target=void\ replace_if_closer(Student,\ Student[])
+comment4.params=nearest_so_far
+comment4.target=double[]\ Std_with_max_distance(Student[])
+comment5.params=distance
+comment5.target=double\ applyFavouritismFunction(double)
+comment6.params=counts
+comment6.target=double\ getTotalCount(double[])
+comment7.params=counts
+comment7.target=double[]\ findMostLikelyChoice(double[])
+numComments=8
