@@ -1,0 +1,31 @@
+{
+  "name": "Prod-Pie",
+  "version": "2.1",
+  "description": "Manage your day with useful graphs on your online activities",
+  "manifest_version": 2,
+  "icons": {
+    "16": "img_16.jpg",
+    "32": "img_32.jpg",
+    "48": "img_48.jpg",
+    "128": "img_128.jpg"
+  },
+  "background": {
+    "persistent": true,
+    "scripts": ["script.js", "pie.js"]
+  },
+  "permissions": ["activeTab", "tabs"],
+  "browser_action": {
+    "default_icon": {
+      "16": "img_16.jpg",
+      "32": "img_32.jpg",
+      "48": "img_48.jpg",
+      "128": "img_128.jpg"
+    },
+    "default_popup": "popup.html"
+  },
+
+  
+   "chrome_url_overrides" : {
+      "newtab": "index.html"
+   }
+}

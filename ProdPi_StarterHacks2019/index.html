@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- the display screen with all our charts, etc -->
+        <link rel="stylesheet"  type="text/css" href="style.css">
+        <title>Display tab</title>
+        <style>
+            body {
+                  background-image: url("back.jpg");
+                  background-size: 2100px 800px;
+                }
+        </style>
+    </head>
+    <body>
+        <!-- Intro -->
+        <div>
+             <script type="text/javascript" src="script.js"></script>
+            <h1 class="h1">Total Time </h1>
+            <h3 id="h3"> 53min </h3>
+            <script>
+                    document.getElementById("h3").innerHTML = totalTimeDisplay();
+            </script>
+           
+        </div>
+           
+        <!-- Most Web Time-->
+         <div>
+            <script type="text/javascript" src="script.js"></script>
+            <!--
+                <h4 id = "h4"> 22</h4>
+            <script>
+                document.getElementById("h4").innerHTML = mostTimePercent();
+            </script>
+            -->
+            
+         
+            
+            <h5 class="h5"> Most of your time </h5>
+            <h6 class="h7"> was spent on</h7>
+            <p id="p"> Netflix </p>
+           
+            <script>
+                document.getElementById("h6").innerHTML = mostTimeWeb();
+            </script>  
+             
+                    
+        </div>
+
+        
+
+        <!-- Graphs -->
+        <div class="graphposition">
+            <canvas id="myCanvas"></canvas>
+            <div class="chart-container" style="position: relative; height:25vh; width:40vw">
+                <canvas id="myChart"></canvas>
+            </div>
+            <script type="text/javascript"  src="Chart.js"></script>
+            <script type="text/javascript" src="script.js"></script>
+            <script type="text/javascript" src="pie.js"></script>
+            
+        </div>
+    </body>
+</html>
