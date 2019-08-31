@@ -1,5 +1,5 @@
-// Gyeongwon Lee
-// 2018-12-29
+// Created by: Gyeongwon Lee
+// 2018-12-29 ~ 2019-08-31 (Revisited and concluded)
 // *Root of the idea: How Netflix recommends movies to its customers...not by category/genre, but by what other people
 //                    SIMILAR to the customer also enjoyed!
 // The Basis for a Customizable/Personal Tutoring Platform (AI). Riiid! EdTech!!!
@@ -7,7 +7,6 @@
 //                    Everyone can tackle one another's problems, identifying misunderstandings and resolving them!
 //                     -- Quizlet?
 //                     -- Different curriculum, so many different sub-categories
-
 
 // Can we predict (right/wrong, what answer, how likely) the student's performance on a test 
 // by simply analyzing his/her performance on the diagnostic test ("practice")?
@@ -33,26 +32,60 @@
 
 import java.io.*;
 import java.util.*;
-public class Main
+public class Main implements GlobalFileNames
 {
     public static void main(String args[]) throws IOException
     {
-        String data_File_name = "C:\\djlfdkd";
-        //String practice_Solutions_File_name = "C:\\djkjkjeeee";
-        String test_Solutions_File_name = "C:\\dfjldkjlkjkljl";
-        
-        File student_data_File = new File(data_File_name);
-        //File practice_Solutions_File = new File(practice_Solutions_File_name);
-        File test_Solutions_File = new File(test_Solutions_File_name);
-        // Read from text file to form Database
-        
-        Database DB = new Database();
-        //Solutions practice_Sol = new Solutions(practice_Solutions_File);
-        Solutions test_Sol = new Solutions(test_Solutions_File);
-        
+        Scanner sc = new Scanner(System.in);
+        Solutions practice_Sol = new Solutions(practice_Solutions_File);
+        Solutions test_Sol = new Solutions(test_Solutions_File);    //used by DB.guessPerformance(...);
+
         // Prompt user input (or read text file) for practice answers from a student whose performance we are predicting
+        //guessPerformance(String[] practice_ans_raw, int[] practice_rating, int test_question_num, int num_neighbours, Solutions test_Sol)
+
+        System.out.println("Enter the student's practice/diagnostic test responses (A ~ D)... END to terminate: ");
+        String practice_ans_raw_str = "";
+        while (sc.hasNext())
+        {
+            String s = sc.next();
+            if (s.equalsIgnoreCase("END"))
+                break;
+            assert(s.equalsIgnoreCase("A") || s.equalsIgnoreCase("B") || s.equalsIgnoreCase("C") || s.equalsIgnoreCase("D"));
+            practice_ans_raw_str += (s + " "); 
+        }
+        String[] practice_ans_raw = practice_ans_raw_str.split("\\s");
+
+        System.out.println("Enter the student's practice/diagnostic test ratings (1 ~ 5)... 0 to terminate: ");
+        int[] practice_rating = new int[practice_ans_raw.length];
+        int count = 0;
+        while (sc.hasNext())
+        {
+            int i = sc.nextInt();
+            if (i == 0)
+                break;
+            assert(1 <= i);
+            assert(i <= 5);
+            practice_rating[count] = i;
+            count++;
+        }
+        assert(count == practice_ans_raw.length);
+
+        System.out.println("Enter the test question number that you wish to guess the student's performance on: ");
+        int test_question_num = sc.nextInt() - 1;
         
-        // Do calculations
-        // Print out the result
+        System.out.println("Enter the value of k (number of neighbours) you wish to use: ");
+        int k = sc.nextInt();
+        
+        // Access the database to make predictions of the student's performance on a test question given his/her responses & ratings 
+        // to the diagnostic/practice test questions
+        DB.guessPerformance(practice_ans_raw, practice_rating, test_question_num, k, test_Sol);
+        // Possible upgrade: make predictions for every test question using a for loop. May use number_of_solutions (instance variable)
+        // of Solutions class
+        
+        // the student got __ % on the diagnostic/practice test
+        // enter "more" to display details...
+        //      - display details for each practice question
+
+        // Print out the performance prediction
     }
 }

@@ -1,13 +1,13 @@
 #BlueJ class context
 comment0.target=Student
-comment1.params=stdName\ practice_ans_raw\ test_ans_raw
-comment1.target=Student(java.lang.String,\ java.lang.String[],\ java.lang.String[])
+comment1.params=stdName\ practice_ans_raw\ practice_rating_raw\ test_ans_raw
+comment1.target=Student(java.lang.String,\ java.lang.String[],\ int[],\ java.lang.String[])
 comment2.params=distance
 comment2.target=Student(double)
-comment3.params=ans
-comment3.target=void\ registerDistanceFrom(int[])
-comment4.params=ans
-comment4.target=int[]\ getDifference(int[])
+comment3.params=ans\ rating
+comment3.target=void\ registerDistanceFrom(int[],\ int[])
+comment4.params=ans\ rating
+comment4.target=int[]\ getDifference(int[],\ int[])
 comment5.params=test_question_num
 comment5.target=int\ getTestAnsFor(int)
 numComments=6
