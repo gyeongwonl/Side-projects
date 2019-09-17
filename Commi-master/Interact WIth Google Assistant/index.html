@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue Tutorial</title>
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="requestStyle">
+            {{request}}
+        </div>
+        <div class="responseStyle">
+            {{response}}
+        </div>
+    </div>
+
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                request: 'Weather?',
+                response: 'Sample response: Sunny'
+            },
+            methods: {
+                readDialogue: function () {
+                    fetch('dialogue.txt')
+                        .then(response => response.text())
+                        .then(text => document.write(text))
+
+                        setTimeout(function(){
+                            window.location.reload(1);
+                        }, 5000);
+                }
+            },
+            created: function () {
+                this.readDialogue();
+            }
+        });
+    </script>
+
+</body>
+
+<style scoped>
+    .requestStyle {
+        color: red;
+    }
+
+    .responseStyle {
+        color: blue;
+    }
+</style>
+
+</html>

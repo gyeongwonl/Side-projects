@@ -1,0 +1,3 @@
+https://www.makeuseof.com/tag/read-write-google-sheets-python/
+https://www.xda-developers.com/how-to-get-google-assistant-on-your-windows-mac-or-linux-machine/
+https://github.com/googlesamples/assistant-sdk-python/tree/master/google-assistant-sdk/googlesamples/assistant/grpc
